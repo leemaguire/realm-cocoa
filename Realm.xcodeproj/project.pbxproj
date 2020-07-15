@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -434,6 +434,8 @@
 		C2CAAE771E9BB5760025454C /* system_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CAAE751E9BB5760025454C /* system_configuration.cpp */; };
 		C2CAAE781E9BB5760025454C /* system_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CAAE751E9BB5760025454C /* system_configuration.cpp */; };
 		C2CAAE7A1E9BB5760025454C /* system_configuration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2CAAE761E9BB5760025454C /* system_configuration.hpp */; };
+		CF6F7AD124BF90C8007BD313 /* realm-sync-dbg.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */; };
+		CF6F7AD224BF90C8007BD313 /* realm-sync-dbg.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E81A1FD51955FE0100FDED82 /* ArrayPropertyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FB81955FE0100FDED82 /* ArrayPropertyTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
 		E81A1FDB1955FE0100FDED82 /* EnumeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FBB1955FE0100FDED82 /* EnumeratorTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
 		E81A1FDD1955FE0100FDED82 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FBC1955FE0100FDED82 /* LinkTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
@@ -616,6 +618,17 @@
 			files = (
 				5D66102E1BE98E500021E04F /* Realm.framework in Embed Frameworks */,
 				5D66102F1BE98E540021E04F /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF6F7AD324BF90C8007BD313 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CF6F7AD224BF90C8007BD313 /* realm-sync-dbg.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -927,6 +940,7 @@
 		C2CAAE721E9642FF0025454C /* network_reachability.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = network_reachability.hpp; path = sync/impl/network_reachability.hpp; sourceTree = "<group>"; };
 		C2CAAE751E9BB5760025454C /* system_configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system_configuration.cpp; sourceTree = "<group>"; };
 		C2CAAE761E9BB5760025454C /* system_configuration.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = system_configuration.hpp; sourceTree = "<group>"; };
+		CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "realm-sync-dbg.xcframework"; sourceTree = "<group>"; };
 		E81A1F621955FC9300FDED82 /* Realm-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Realm-Info.plist"; sourceTree = "<group>"; };
 		E81A1F631955FC9300FDED82 /* RLMAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLMAccessor.h; sourceTree = "<group>"; };
 		E81A1F641955FC9300FDED82 /* RLMAccessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RLMAccessor.mm; sourceTree = "<group>"; };
@@ -1001,6 +1015,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6F7AD124BF90C8007BD313 /* realm-sync-dbg.xcframework in Frameworks */,
 				1A7B823A1D51259F00750296 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1159,6 +1174,7 @@
 		1A7B82361D51254600750296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */,
 				3F9816292317763000C3543D /* libc++.tbd */,
 				1A7B82391D51259F00750296 /* libz.tbd */,
 			);
@@ -1905,6 +1921,7 @@
 				5D659E9F1BE04556006515A0 /* Headers */,
 				1A7B82351D51235600750296 /* Frameworks */,
 				5D659ECE1BE04556006515A0 /* Resources */,
+				CF6F7AD324BF90C8007BD313 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2841,7 +2858,11 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2852,7 +2873,11 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 			};
 			name = Release;
 		};
@@ -2887,7 +2912,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Realm/Tests/RealmTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Realm.RealmTestSupport;
 				PRODUCT_MODULE_NAME = RealmTestSupport;
 				PRODUCT_NAME = RealmTestSupport;
@@ -2902,7 +2931,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Realm/Tests/RealmTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.Realm.RealmTestSupport;
 				PRODUCT_MODULE_NAME = RealmTestSupport;
 				PRODUCT_NAME = RealmTestSupport;
@@ -2915,7 +2948,18 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				"OTHER_LDFLAGS[sdk=iphone*]" = "-lrealm-iphone-device$(REALM_LIBRARY_SUFFIX)";
+				"OTHER_LDFLAGS[sdk=iphoneos*]" = "-lrealm-iphone-device$(REALM_LIBRARY_SUFFIX)";
+				"OTHER_LDFLAGS[sdk=iphonesimulator*]" = "-lrealm-iphone-simulator$(REALM_LIBRARY_SUFFIX)";
+				"OTHER_LIBTOOLFLAGS[sdk=iphone*]" = "-lrealm-iphone$(REALM_LIBRARY_SUFFIX)";
+				"OTHER_LIBTOOLFLAGS[sdk=iphoneos*]" = "-lrealm-iphone-device$(REALM_LIBRARY_SUFFIX)";
+				"OTHER_LIBTOOLFLAGS[sdk=iphonesimulator*]" = "-lrealm-iphone-simulator$(REALM_LIBRARY_SUFFIX)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -2926,7 +2970,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
@@ -2950,7 +2999,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "-D BUILDING_REALM_SWIFT_TESTS";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2962,7 +3015,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "-D BUILDING_REALM_SWIFT_TESTS";
 			};
 			name = Release;
@@ -2972,6 +3029,8 @@
 			baseConfigurationReference = 5D659E741BE03E0D006515A0 /* Realm iOS static.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				LIBRARY_SEARCH_PATHS = core;
+				"OTHER_LIBTOOLFLAGS[sdk=iphone*]" = "-lrealm-ios$(REALM_LIBRARY_SUFFIX)";
 			};
 			name = Debug;
 		};
@@ -2980,6 +3039,7 @@
 			baseConfigurationReference = 5D659E741BE03E0D006515A0 /* Realm iOS static.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				LIBRARY_SEARCH_PATHS = core;
 			};
 			name = Release;
 		};

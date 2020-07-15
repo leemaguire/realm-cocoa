@@ -22,6 +22,8 @@ source_root="$(dirname "$0")"
 
 : ${REALM_SYNC_VERSION:=$(sed -n 's/^REALM_SYNC_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
+: ${REALM_XCFRAMEWORK_VERSION:=$(sed -n 's/^REALM_XCFRAMEWORK_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
+
 : ${REALM_OBJECT_SERVER_VERSION:=$(sed -n 's/^REALM_OBJECT_SERVER_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
 # You can override the xcmode used
@@ -45,6 +47,7 @@ command:
   clean:                clean up/remove all generated files
   download-core:        downloads core library (binary version)
   download-sync:        downloads sync library (binary version, core+sync)
+  download-sync-xcframework: downloads sync library (binary version, core+sync) as an xcframework
   build:                builds all iOS and macOS frameworks
   ios-static:           builds fat iOS static framework
   ios-dynamic:          builds iOS dynamic frameworks
@@ -325,6 +328,9 @@ download_common() {
     elif [ "$download_type" == "sync" ]; then
         version=$REALM_SYNC_VERSION
         url="${REALM_BASE_URL}/sync/realm-sync-cocoa-${version}.tar.xz"
+    elif [ "$download_type" == "xcframework" ]; then
+        version=$REALM_XCFRAMEWORK_VERSION
+        url="${REALM_BASE_URL}/sync/realm-sync-xcframework-${version}.tar.xz"
     else
         echo "Unknown dowload_type: $download_type"
         exit 1
@@ -378,6 +384,11 @@ download_core() {
 
 download_sync() {
     download_common "sync"
+}
+
+download_xcframework() {
+    # download_common "xcframework"
+    echo 'needs release'
 }
 
 ######################################
@@ -465,6 +476,19 @@ case "$COMMAND" in
             download_sync
         else
             echo "The core library seems to be up to date."
+        fi
+        exit 0
+        ;;
+
+    ######################################
+    # XCFramework
+    ######################################
+    "download-xcframework")
+        if [ "$REALM_XCFRAMEWORK_VERSION" = "current" ]; then
+            echo "Using version of xcframework already in realm-sync.xcframework directory"
+            exit 0
+        else
+            download_xcframework
         fi
         exit 0
         ;;
@@ -1224,43 +1248,20 @@ EOM
             exit 1
           fi
 
-          if [ ! -d core ]; then
-            sh build.sh download-sync
-            rm core
-            mv sync-* core
-            mv core/librealm-ios.a core/librealmcore-ios.a
-            mv core/librealm-macosx.a core/librealmcore-macosx.a
-            mv core/librealm-tvos.a core/librealmcore-tvos.a
-            mv core/librealm-watchos.a core/librealmcore-watchos.a
-          fi
-
-          rm -rf include
-          mkdir -p include
-          mv core/include include/core
-
-          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
-          cp Realm/*.hpp include
-          cp Realm/ObjectStore/src/*.hpp include
-          cp Realm/ObjectStore/src/sync/*.hpp include/sync
-          cp Realm/ObjectStore/src/sync/impl/*.hpp include/sync/impl
-          cp Realm/ObjectStore/src/sync/impl/apple/*.hpp include/sync/impl/apple
-          cp Realm/ObjectStore/src/impl/*.hpp include/impl
-          cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
-          cp Realm/ObjectStore/src/util/*.hpp include/util
-          cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
-
           echo '' > Realm/RLMPlatform.h
           if [ -n "$COCOAPODS_VERSION" ]; then
             # This variable is set for the prepare_command available
             # from the 1.0 prereleases, which requires a different
             # header layout within the header_mappings_dir.
-            cp Realm/*.h include
+            #cp Realm/*.h include
+            echo 'skip > 1'
           else
             # For CocoaPods < 1.0, we need to scope the headers within
             # the header_mappings_dir by another subdirectory to avoid
             # Clang from complaining about non-modular headers.
-            mkdir -p include/Realm
-            cp Realm/*.h include/Realm
+
+            #Why do we bother to support old versions?
+            echo 'skip < 1'
           fi
         else
           sh build.sh set-swift-version
