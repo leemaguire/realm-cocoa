@@ -107,6 +107,9 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   # s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
 
+  s.vendored_frameworks  = 'core/realm-sync-dbg.xcframework'
+
+
   s.subspec 'Headers' do |s|
     s.source_files          = public_header_files
     s.public_header_files   = public_header_files
