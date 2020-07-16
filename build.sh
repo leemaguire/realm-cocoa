@@ -1248,7 +1248,7 @@ EOM
             exit 1
           fi
         # temp
-          mkdir Realm
+          mkdir -p Realm
           cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "/Users/lee.maguire/Projects/XCFrameworkPod/Pods/Realm/realm-sync-dbg.xcframework"
 
         #   if [ ! -d core ]; then
