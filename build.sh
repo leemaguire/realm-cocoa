@@ -1264,7 +1264,7 @@ EOM
           rm -rf include
           mkdir -p include
         #   mv core/include include/core
-          mv realm-sync-dbg.xcframework/ios-armv7_arm64/Headers include/core
+          cp -R realm-sync-dbg.xcframework/ios-armv7_arm64/Headers include/core
 
           mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
           cp Realm/*.hpp include
