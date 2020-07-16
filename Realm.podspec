@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
                                 'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden -fno-aligned-new',
                                 'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"',
                               }
-  s.preserve_paths          = %w(build.sh include)
+  s.preserve_paths          = %w(build.sh include realm-sync-dbg.xcframework)
 
   s.ios.deployment_target   = '9.0'
  # s.ios.vendored_library    = 'core/librealmcore-ios.a'
