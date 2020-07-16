@@ -108,7 +108,7 @@ Pod::Spec.new do |s|
   # s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
 
   s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**"' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/ios-i386_x86_64-simulator"' }
 
 
   s.subspec 'Headers' do |s|
