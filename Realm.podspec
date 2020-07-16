@@ -108,6 +108,8 @@ Pod::Spec.new do |s|
   s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
 
   s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**"' }
+
 
   s.subspec 'Headers' do |s|
     s.source_files          = public_header_files

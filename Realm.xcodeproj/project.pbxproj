@@ -435,7 +435,6 @@
 		C2CAAE781E9BB5760025454C /* system_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CAAE751E9BB5760025454C /* system_configuration.cpp */; };
 		C2CAAE7A1E9BB5760025454C /* system_configuration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2CAAE761E9BB5760025454C /* system_configuration.hpp */; };
 		CF6F7AD124BF90C8007BD313 /* realm-sync-dbg.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */; };
-		CF6F7AD224BF90C8007BD313 /* realm-sync-dbg.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF6F7AD024BF90C8007BD313 /* realm-sync-dbg.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		E81A1FD51955FE0100FDED82 /* ArrayPropertyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FB81955FE0100FDED82 /* ArrayPropertyTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
 		E81A1FDB1955FE0100FDED82 /* EnumeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FBB1955FE0100FDED82 /* EnumeratorTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
 		E81A1FDD1955FE0100FDED82 /* LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A1FBC1955FE0100FDED82 /* LinkTests.m */; settings = {COMPILER_FLAGS = "-fobjc-arc-exceptions"; }; };
@@ -618,17 +617,6 @@
 			files = (
 				5D66102E1BE98E500021E04F /* Realm.framework in Embed Frameworks */,
 				5D66102F1BE98E540021E04F /* RealmSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CF6F7AD324BF90C8007BD313 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CF6F7AD224BF90C8007BD313 /* realm-sync-dbg.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1921,7 +1909,6 @@
 				5D659E9F1BE04556006515A0 /* Headers */,
 				1A7B82351D51235600750296 /* Frameworks */,
 				5D659ECE1BE04556006515A0 /* Resources */,
-				CF6F7AD324BF90C8007BD313 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
