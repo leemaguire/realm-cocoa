@@ -89,8 +89,8 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig     = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES',
                                 'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',
                                 'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
-                                'OTHER_CPLUSPLUSFLAGS' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden',
-                                'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden -fno-aligned-new',
+                                'OTHER_CPLUSPLUSFLAGS' => '-isystem "${PODS_ROOT}/Realm/include/core/realm-sync-dbg.xcframework/**" -fvisibility-inlines-hidden',
+                                'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core/realm-sync-dbg.xcframework/**" -fvisibility-inlines-hidden -fno-aligned-new',
                                 'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"',
                               }
   s.preserve_paths          = %w(build.sh include)
@@ -107,7 +107,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   # s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
 
-  s.vendored_libraries  = 'core/realm-sync-dbg.xcframework'
+  s.vendored_frameworks  = 'core/realm-sync-dbg.xcframework'
 
 
   s.subspec 'Headers' do |s|
