@@ -89,14 +89,14 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig     = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES',
                                 'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',
                                 'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
-                                'OTHER_CPLUSPLUSFLAGS' => '-isystem "${PODS_ROOT}/Realm/include/core/realm-sync-dbg.xcframework/**" -fvisibility-inlines-hidden',
-                                'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core/realm-sync-dbg.xcframework/**" -fvisibility-inlines-hidden -fno-aligned-new',
+                                'OTHER_CPLUSPLUSFLAGS' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden',
+                                'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden -fno-aligned-new',
                                 'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"',
                               }
   s.preserve_paths          = %w(build.sh include)
 
   s.ios.deployment_target   = '9.0'
-  # s.ios.vendored_library    = 'core/librealmcore-ios.a'
+   s.ios.vendored_library    = 'core/librealmcore-ios.a'
 
   s.osx.deployment_target   = '10.9'
   # s.osx.vendored_library    = 'core/librealmcore-macosx.a'
