@@ -1247,7 +1247,10 @@ their entries in your Podfile.
 EOM
             exit 1
           fi
-
+        # temp
+          cp ../realm-sync-dbg.xcframework realm-sync-dbg.xcframework
+        # temp
+        
           if [ ! -d core ]; then
             sh build.sh download-sync
             rm core
