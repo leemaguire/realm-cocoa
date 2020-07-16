@@ -1249,7 +1249,7 @@ EOM
           fi
         # temp
           mkdir -p Realm
-        #   cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "/Users/lee.maguire/Projects/XCFrameworkPod/Pods/Realm/realm-sync-dbg.xcframework"
+          cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "realm-sync-dbg.xcframework"
 
         #   if [ ! -d core ]; then
             # sh build.sh download-sync
