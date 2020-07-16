@@ -82,10 +82,10 @@ Pod::Spec.new do |s|
   s.frameworks              = 'Security'
   s.module_map              = 'Realm/Realm.modulemap'
   s.compiler_flags          = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"#{s.version}\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"
-  s.prepare_command         = 'sh build.sh cocoapods-setup'
+  # s.prepare_command         = 'sh build.sh cocoapods-setup'
   s.source_files            = source_files + private_header_files
   s.private_header_files    = private_header_files
-  s.header_mappings_dir     = 'include'
+  s.header_mappings_dir     = 'realm-sync-dbg.xcframework/ios-armv7_arm64/Headers'#'include'
   s.pod_target_xcconfig     = { 'APPLICATION_EXTENSION_API_ONLY' => 'YES',
                                 'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',
                                 'CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF' => 'NO',
@@ -93,26 +93,18 @@ Pod::Spec.new do |s|
                                 'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden -fno-aligned-new',
                                 'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"',
                               }
-  s.preserve_paths          = %w(build.sh include)
-
-  s.ios.deployment_target   = '9.0'
-#  s.ios.vendored_library    = 'core/librealmcore-ios.a'
-
-  s.osx.deployment_target   = '10.9'
-  # s.osx.vendored_library    = 'core/librealmcore-macosx.a'
-
-  s.watchos.deployment_target = '2.0'
-  # s.watchos.vendored_library  = 'core/librealmcore-watchos.a'
-
-  s.tvos.deployment_target = '9.0'
-  # s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
-
   s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
   s.xcconfig = { 
     'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**',
     "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device-dbg" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator-dbg" -l"z", "-framework" "Security"'
   }
+  s.preserve_paths          = %w(build.sh include)
+
+  s.ios.deployment_target   = '9.0'
+  s.osx.deployment_target   = '10.9'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.subspec 'Headers' do |s|
     s.source_files          = public_header_files
