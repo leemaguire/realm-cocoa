@@ -1248,8 +1248,8 @@ EOM
             exit 1
           fi
         # temp
+
           cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "/Users/lee.maguire/Projects/XCFrameworkPod/Pods/Realm/realm-sync-dbg.xcframework"
-        # temp
 
         #   if [ ! -d core ]; then
             # sh build.sh download-sync
@@ -1264,18 +1264,18 @@ EOM
           rm -rf include
           mkdir -p include
         #   mv core/include include/core
-          cp -R realm-sync-dbg.xcframework/ios-armv7_arm64/Headers include/core
+        #   cp -R realm-sync-dbg.xcframework/ios-armv7_arm64/Headers include/core
 
-          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
-          cp Realm/*.hpp include
-          cp Realm/ObjectStore/src/*.hpp include
-          cp Realm/ObjectStore/src/sync/*.hpp include/sync
-          cp Realm/ObjectStore/src/sync/impl/*.hpp include/sync/impl
-          cp Realm/ObjectStore/src/sync/impl/apple/*.hpp include/sync/impl/apple
-          cp Realm/ObjectStore/src/impl/*.hpp include/impl
-          cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
-          cp Realm/ObjectStore/src/util/*.hpp include/util
-          cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
+        #   mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
+        #   cp Realm/*.hpp include
+        #   cp Realm/ObjectStore/src/*.hpp include
+        #   cp Realm/ObjectStore/src/sync/*.hpp include/sync
+        #   cp Realm/ObjectStore/src/sync/impl/*.hpp include/sync/impl
+        #   cp Realm/ObjectStore/src/sync/impl/apple/*.hpp include/sync/impl/apple
+        #   cp Realm/ObjectStore/src/impl/*.hpp include/impl
+        #   cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
+        #   cp Realm/ObjectStore/src/util/*.hpp include/util
+        #   cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
 
           echo '' > Realm/RLMPlatform.h
           if [ -n "$COCOAPODS_VERSION" ]; then
