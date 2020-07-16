@@ -109,8 +109,8 @@ Pod::Spec.new do |s|
 
   s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
 
-  s.subspec 'Headers' do |s|
-    s.source_files          = public_header_files
-    s.public_header_files   = public_header_files
-  end
+  # s.subspec 'Headers' do |s|
+  #   s.source_files          = public_header_files
+  #   s.public_header_files   = public_header_files
+  # end
 end
