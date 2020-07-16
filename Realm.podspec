@@ -93,7 +93,8 @@ Pod::Spec.new do |s|
                                 'OTHER_CPLUSPLUSFLAGS[arch=armv7]' => '-isystem "${PODS_ROOT}/Realm/include/core" -fvisibility-inlines-hidden -fno-aligned-new',
                                 'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"',
                               }
-  s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
+  # s.vendored_frameworks  = 'realm-sync-dbg.xcframework' FIXME: There is a bug in Cocoapods which does not let an xcframework which is embedded in a framework link correctly. See =>
+  # https://github.com/CocoaPods/CocoaPods/issues/9525
   s.xcconfig = { 
     'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**',
     "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device-dbg" -l"z" "-framework" "Security"',
