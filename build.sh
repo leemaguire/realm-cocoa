@@ -1248,6 +1248,7 @@ EOM
             exit 1
           fi
         # temp
+          pwd
           cp ../../realm-sync-dbg.xcframework realm-sync-dbg.xcframework
         # temp
 
