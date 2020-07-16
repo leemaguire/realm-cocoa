@@ -96,7 +96,7 @@ Pod::Spec.new do |s|
   s.preserve_paths          = %w(build.sh include)
 
   s.ios.deployment_target   = '9.0'
-   s.ios.vendored_library    = 'core/librealmcore-ios.a'
+ # s.ios.vendored_library    = 'core/librealmcore-ios.a'
 
   s.osx.deployment_target   = '10.9'
   # s.osx.vendored_library    = 'core/librealmcore-macosx.a'
@@ -107,7 +107,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   # s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
 
-  s.vendored_frameworks  = 'core/realm-sync-dbg.xcframework'
+  s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
 
 
   s.subspec 'Headers' do |s|
