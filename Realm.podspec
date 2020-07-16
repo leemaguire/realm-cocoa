@@ -98,7 +98,7 @@ Pod::Spec.new do |s|
   s.xcconfig = { 
     'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**',
     "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device-dbg" -l"z" "-framework" "Security"',
-    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator-dbg" -l"z", "-framework" "Security"'
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator-dbg" -l"z" "-framework" "Security"'
   }
   s.preserve_paths          = %w(build.sh include Realm/realm-sync-dbg.xcframework)
 
