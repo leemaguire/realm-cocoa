@@ -2965,6 +2965,7 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "";
+				"OTHER_LDFLAGS[sdk=watch*]" = "-lrealm-watchos$(REALM_LIBRARY_SUFFIX)blah";
 			};
 			name = Release;
 		};

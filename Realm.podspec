@@ -110,8 +110,8 @@ Pod::Spec.new do |s|
   s.vendored_frameworks  = 'realm-sync-dbg.xcframework'
   s.xcconfig = { 
     'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**',
-    "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited), -l"c++", "-lrealm-iphone-device-dbg", -l"z", "-framework", "Security"',
-    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited), -l"c++", "-lrealm-iphone-simulator-dbg", -l"z", "-framework", "Security"'
+    "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device-dbg" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator-dbg" -l"z", "-framework" "Security"'
   }
 
   s.subspec 'Headers' do |s|
