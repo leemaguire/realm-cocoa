@@ -326,7 +326,7 @@ download_common() {
     elif [ "$download_type" == "sync" ]; then
         version=$REALM_SYNC_VERSION
         url="${REALM_BASE_URL}/sync/realm-sync-cocoa-${version}.tar.xz"
-    elif [ "$download_type" == "xcframework" ]; then
+    elif [ "$download_type" == "sync-xcframework" ]; then
         version=$REALM_SYNC_VERSION
         url="${REALM_BASE_URL}/sync/realm-sync-xcframework-${version}.tar.xz"
     else
@@ -357,16 +357,27 @@ download_common() {
         exit 1
     fi
 
-    (
-        cd "$temp_dir"
-        rm -rf "$download_type"
-        tar xf "$tar_path" --xz
-        mv core "${download_type}-${version}"
-    )
+    if [ "$download_type" == "sync-xcframework" ]; then
+        (
+            cd "$temp_dir"
+            tar xf "$tar_path" --xz
+        )
+                rm -rf "realm-sync.xcframework"
+        mv "${temp_dir}/realm-sync.xcframework" .
+    else
+        (
+            cd "$temp_dir"
+            echo ${temp_dir}
+            rm -rf "$download_type"
+            tar xf "$tar_path" --xz
+            mv core "${download_type}-${version}"
+        )
 
-    rm -rf "${download_type}-${version}" core
-    mv "${temp_dir}/${download_type}-${version}" .
-    ln -s "${download_type}-${version}" core
+        rm -rf "${download_type}-${version}" core
+        echo "${temp_dir}/${download_type}-${version}"
+        mv "${temp_dir}/${download_type}-${version}" .
+        ln -s "${download_type}-${version}" core
+    fi
 
     # Xcode 12 beta 1 ships a broken version of __bit_reference which breaks
     # ABI compatibility with older versions, so grab a fixed version of that
@@ -385,7 +396,7 @@ download_sync() {
 }
 
 download_xcframework() {
-    download_common "xcframework"
+    download_common "sync-xcframework"
 }
 
 ######################################
