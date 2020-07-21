@@ -1264,6 +1264,8 @@ EOM
 
           rm -rf include
           mkdir -p include
+          echo "xcframewor location"
+          pwd
           cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
 
           mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
