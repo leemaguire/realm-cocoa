@@ -98,11 +98,11 @@ Pod::Spec.new do |s|
   s.xcconfig = { 
     'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync.xcframework/**',
     "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device" -l"z" "-framework" "Security"',
-    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator" -l"z" "-framework" "Security"'
-    "OTHER_LDFLAGS[sdk=watchos*]" => '$(inherited) -l"c++" "-lrealm-watch-simulator" -l"z" "-framework" "Security"'
-    "OTHER_LDFLAGS[sdk=watchsimulator*]" => '$(inherited) -l"c++" "-lrealm-watch-simulator" -l"z" "-framework" "Security"'
-    "OTHER_LDFLAGS[sdk=appletvos*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"'
-    "OTHER_LDFLAGS[sdk=appletvsimulator*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"'
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=watchos*]" => '$(inherited) -l"c++" "-lrealm-watch-simulator" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=watchsimulator*]" => '$(inherited) -l"c++" "-lrealm-watch-simulator" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=appletvos*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=appletvsimulator*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=macosx*]" => '$(inherited) -l"c++" "-lrealm-maccatalyst" -l"z" "-framework" "Security"'
   }
   s.preserve_paths          = %w(build.sh include realm-sync.xcframework)
