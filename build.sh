@@ -1268,7 +1268,7 @@ EOM
           pwd
           cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
 
-          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple include/util/bson
+          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
           cp Realm/*.hpp include
           cp Realm/ObjectStore/src/*.hpp include
           cp Realm/ObjectStore/src/sync/*.hpp include/sync
@@ -1278,7 +1278,6 @@ EOM
           cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
           cp Realm/ObjectStore/src/util/*.hpp include/util
           cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
-	      cp Realm/ObjectStore/src/util/bson/*.hpp include/util/bson
 
           echo '' > Realm/RLMPlatform.h
           if [ -n "$COCOAPODS_VERSION" ]; then
