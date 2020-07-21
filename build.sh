@@ -358,11 +358,12 @@ download_common() {
     fi
 
     if [ "$download_type" == "sync-xcframework" ]; then
+        echo "build with xcframework"
         (
             cd "$temp_dir"
             tar xf "$tar_path" --xz
         )
-                rm -rf "realm-sync.xcframework"
+        rm -rf "realm-sync.xcframework"
         mv "${temp_dir}/realm-sync.xcframework" .
     else
         (
