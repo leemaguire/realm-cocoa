@@ -363,6 +363,8 @@ download_common() {
             tar xf "$tar_path" --xz
         )
         rm -rf "realm-sync.xcframework"
+        echo "${temp_dir}/realm-sync.xcframework"
+        pwd
         mv "${temp_dir}/realm-sync.xcframework" .
     else
         (
