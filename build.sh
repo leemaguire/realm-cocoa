@@ -22,8 +22,6 @@ source_root="$(dirname "$0")"
 
 : ${REALM_SYNC_VERSION:=$(sed -n 's/^REALM_SYNC_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
-: ${REALM_XCFRAMEWORK_VERSION:=$(sed -n 's/^REALM_XCFRAMEWORK_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
-
 : ${REALM_OBJECT_SERVER_VERSION:=$(sed -n 's/^REALM_OBJECT_SERVER_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
 # You can override the xcmode used
@@ -329,7 +327,7 @@ download_common() {
         version=$REALM_SYNC_VERSION
         url="${REALM_BASE_URL}/sync/realm-sync-cocoa-${version}.tar.xz"
     elif [ "$download_type" == "xcframework" ]; then
-        version=$REALM_XCFRAMEWORK_VERSION
+        version=$REALM_SYNC_VERSION
         url="${REALM_BASE_URL}/sync/realm-sync-xcframework-${version}.tar.xz"
     else
         echo "Unknown dowload_type: $download_type"
@@ -387,8 +385,7 @@ download_sync() {
 }
 
 download_xcframework() {
-    # download_common "xcframework"
-    echo 'needs release'
+    download_common "xcframework"
 }
 
 ######################################
@@ -1248,8 +1245,8 @@ EOM
             exit 1
           fi
         # temp
-          mkdir -p Realm
-          cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "realm-sync-dbg.xcframework"
+        #   mkdir -p Realm
+        #   cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "realm-sync-dbg.xcframework"
 
         #   if [ ! -d core ]; then
             # sh build.sh download-sync
