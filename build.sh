@@ -358,7 +358,6 @@ download_common() {
     fi
 
     if [ "$download_type" == "sync-xcframework" ]; then
-        echo "build with xcframework"
         (
             cd "$temp_dir"
             tar xf "$tar_path" --xz
@@ -1256,24 +1255,14 @@ their entries in your Podfile.
 EOM
             exit 1
           fi
-        # temp
-        #   mkdir -p Realm
-        #   cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "realm-sync-dbg.xcframework"
 
-          if [ ! -d core ]; then
+          if [ ! -d realm-sync.xcframework ]; then
             sh build.sh download-sync-xcframework
-            rm core
-            # mv sync-* core
-            # mv core/librealm-ios.a core/librealmcore-ios.a
-            # mv core/librealm-macosx.a core/librealmcore-macosx.a
-            # mv core/librealm-tvos.a core/librealmcore-tvos.a
-            # mv core/librealm-watchos.a core/librealmcore-watchos.a
           fi
 
           rm -rf include
           mkdir -p include
-        #   mv core/include include/core
-          cp -R realm-sync-dbg.xcframework/ios-armv7_arm64/Headers include/core
+          cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
 
           mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
           cp Realm/*.hpp include
