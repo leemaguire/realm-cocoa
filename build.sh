@@ -1248,15 +1248,15 @@ EOM
         #   mkdir -p Realm
         #   cp -R "/Users/lee.maguire/Projects/XCFrameworkPod/realm-sync-dbg.xcframework" "realm-sync-dbg.xcframework"
 
-        #   if [ ! -d core ]; then
-            # sh build.sh download-sync
-            # rm core
+          if [ ! -d core ]; then
+            sh build.sh download-sync-xcframework
+            rm core
             # mv sync-* core
             # mv core/librealm-ios.a core/librealmcore-ios.a
             # mv core/librealm-macosx.a core/librealmcore-macosx.a
             # mv core/librealm-tvos.a core/librealmcore-tvos.a
             # mv core/librealm-watchos.a core/librealmcore-watchos.a
-        #   fi
+          fi
 
           rm -rf include
           mkdir -p include
