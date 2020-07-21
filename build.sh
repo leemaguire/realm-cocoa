@@ -1258,13 +1258,13 @@ EOM
             exit 1
           fi
 
-        #   if [ ! -d realm-sync.xcframework ]; then
+          if [ ! -d realm-sync.xcframework ]; then
             sh build.sh download-sync-xcframework
-        #   fi
+          fi
 
           rm -rf include
           mkdir -p include
-          cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
+        #   cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
 
           mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
           cp Realm/*.hpp include
