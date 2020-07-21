@@ -1268,7 +1268,7 @@ EOM
           pwd
           cp -R realm-sync.xcframework/ios-armv7_arm64/Headers include/core
 
-          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
+          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple include/util/bson
           cp Realm/*.hpp include
           cp Realm/ObjectStore/src/*.hpp include
           cp Realm/ObjectStore/src/sync/*.hpp include/sync
