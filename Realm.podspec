@@ -100,7 +100,7 @@ Pod::Spec.new do |s|
     "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator" -l"z" "-framework" "Security"'
   }
-  s.preserve_paths          = %w(build.sh include Realm/realm-sync.xcframework)
+  s.preserve_paths          = %w(build.sh include realm-sync.xcframework)
 
   s.ios.deployment_target   = '9.0'
   s.osx.deployment_target   = '10.9'
