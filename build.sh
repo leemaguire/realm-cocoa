@@ -480,7 +480,7 @@ case "$COMMAND" in
     ######################################
     # XCFramework
     ######################################
-    "download-xcframework")
+    "download-sync-xcframework")
         if [ "$REALM_XCFRAMEWORK_VERSION" = "current" ]; then
             echo "Using version of xcframework already in realm-sync.xcframework directory"
             exit 0
