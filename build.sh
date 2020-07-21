@@ -1256,9 +1256,9 @@ EOM
             exit 1
           fi
 
-          if [ ! -d realm-sync.xcframework ]; then
+        #   if [ ! -d realm-sync.xcframework ]; then
             sh build.sh download-sync-xcframework
-          fi
+        #   fi
 
           rm -rf include
           mkdir -p include

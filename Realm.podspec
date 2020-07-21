@@ -96,11 +96,11 @@ Pod::Spec.new do |s|
   # s.vendored_frameworks  = 'realm-sync-dbg.xcframework' FIXME: There is a bug in Cocoapods which does not let an xcframework which is embedded in a framework link correctly. See =>
   # https://github.com/CocoaPods/CocoaPods/issues/9525
   s.xcconfig = { 
-    'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync-dbg.xcframework/**',
-    "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device-dbg" -l"z" "-framework" "Security"',
-    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator-dbg" -l"z" "-framework" "Security"'
+    'LIBRARY_SEARCH_PATHS' => '${PODS_ROOT}/Realm/realm-sync.xcframework/**',
+    "OTHER_LDFLAGS[sdk=iphoneos*]" => '$(inherited) -l"c++" "-lrealm-iphone-device" -l"z" "-framework" "Security"',
+    "OTHER_LDFLAGS[sdk=iphonesimulator*]" => '$(inherited) -l"c++" "-lrealm-iphone-simulator" -l"z" "-framework" "Security"'
   }
-  s.preserve_paths          = %w(build.sh include Realm/realm-sync-dbg.xcframework)
+  s.preserve_paths          = %w(build.sh include Realm/realm-sync.xcframework)
 
   s.ios.deployment_target   = '9.0'
   s.osx.deployment_target   = '10.9'
