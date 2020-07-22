@@ -103,7 +103,7 @@ Pod::Spec.new do |s|
     "OTHER_LDFLAGS[sdk=watchsimulator*]" => '$(inherited) -l"c++" "-lrealm-watch-simulator" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=appletvos*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=appletvsimulator*]" => '$(inherited) -l"c++" "-lrealm-appletv-simulator" -l"z" "-framework" "Security"',
-    "OTHER_LDFLAGS[sdk=maccatalyst*]" => '$(inherited) -l"c++" "-lrealm-maccatalyst" -l"z" "-framework" "Security"'
+    "OTHER_LDFLAGS[sdk=maccatalyst*]" => '$(inherited) -l"c++" "-lrealm-maccatalyst" -l"z" "-framework" "Security"',
     "OTHER_LDFLAGS[sdk=macosx*]" => '$(inherited) -l"c++" "-lrealm-macosx" -l"z" "-framework" "Security"'
   }
   s.preserve_paths          = %w(build.sh include realm-sync.xcframework)
